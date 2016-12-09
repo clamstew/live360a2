@@ -1,4 +1,13 @@
-<div>
+
+<ul>
+  <li *ngFor="let customer of customers" (click)="selectIt(customer)"
+    [class.selected]="isSelected(customer)"
+  >
+    {{customer.name}}
+  </li>
+</ul>
+
+<div *ngIf="selectedCustomer">
   Hello {{selectedCustomer.name}}
   <div>id: {{selectedCustomer.id}}</div>
   <input [(ngModel)]="selectedCustomer.name">
