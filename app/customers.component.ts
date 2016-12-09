@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Customer } from './customer';
 import { CustomerService } from './customer.service';
@@ -9,12 +9,14 @@ import { CustomerService } from './customer.service';
     templateUrl: 'customers.component.html',
     styleUrls: ['customers.component.css']
 })
-export class CustomerComponent {
+export class CustomerComponent implements OnInit {
     customers: Customer[];
 
-    constructor(private customerService: CustomerService) {
+    constructor(private customerService: CustomerService) {  }
+
+    ngOnInit() {
         this.customers = this.customerService.getCustomers();
-     }
+    }
 
     selectedCustomer: Customer; // = this.customers[0];
 
