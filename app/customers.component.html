@@ -1,0 +1,8 @@
+<div>
+  Hello {{selectedCustomer.name}}
+  <div>id: {{selectedCustomer.id}}</div>
+  <input [(ngModel)]="selectedCustomer.name">
+  <input [(ngModel)]="selectedCustomer.state">
+  <button (click)="showMessage()">Push Me</button>
+  <div>{{message}}</div>
+</div>
