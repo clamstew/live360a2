@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Customer } from './customer';
+import { CustomerService } from './customer.service';
 
 @Component({
     moduleId: module.id,
@@ -9,11 +10,12 @@ import { Customer } from './customer';
     styleUrls: ['customers.component.css']
 })
 export class CustomerComponent {
-    customers = [
-      new Customer(1, 'John', 'Florida'),
-      new Customer(2, 'Ward', 'South Pole'),
-      new Customer(3, 'Jesse', 'Disney'),
-    ];
+    customers: Customer[];
+
+    constructor(private customerService: CustomerService) {
+        this.customers = this.customerService.getCustomers();
+     }
+
     selectedCustomer: Customer; // = this.customers[0];
 
     isSelected(c: Customer) {

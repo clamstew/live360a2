@@ -5,14 +5,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }  from './app.component';
 import { CustomerComponent } from './customers.component';
 import { CustomerDetailComponent } from './customer-detail.component';
+import { CustomerService } from './customer.service';
 
 @NgModule({
   imports: [ BrowserModule, FormsModule ],
   declarations: [
     AppComponent,
     CustomerComponent,
-    CustomerDetailComponent
+    CustomerDetailComponent,
   ],
+  providers: [ CustomerService ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
